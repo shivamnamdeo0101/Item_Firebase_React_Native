@@ -4,9 +4,9 @@ import * as firebase from 'firebase';
 import {firebaseConfig} from './config';
 import {Item, Input, Label ,Button, List,ListItem} from 'native-base';
 import Constant from 'expo-constants';
-
-firebase.initializeApp(firebaseConfig)
-
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
 export default class App extends React.Component{
   state = {
     text:"",
